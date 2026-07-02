@@ -60,19 +60,6 @@ The app is two pieces: a **static frontend** (built by Vite) and a small
 **API server** (`server/index.js`) that holds the Turso token. You can deploy
 them together or apart.
 
-### Option A — one Node host (simplest): Render / Railway / Fly.io
-
-The Express server serves the built frontend *and* the API from one origin.
-
-```bash
-npm run build        # outputs dist/
-npm start            # serves dist/ + /api on $PORT
-```
-
-On the host: build command `npm install && npm run build`, start command
-`npm start`, and set env vars `TURSO_DATABASE_URL`, `TURSO_AUTH_TOKEN` (the host
-provides `PORT`). Done — one URL, no CORS, no `VITE_API_URL` needed.
-
 ### Option B — Lovable frontend + Turso behind a deployed API
 
 Lovable hosts the **frontend**; the **API + Turso** live on a small Node host.
